@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jias</groupId>
-	<artifactId>JiasBlog</artifactId>
+	<artifactId>JiasPage</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>JiasBlog</name>
+	<name>JiasPage</name>
 	<description>Blog project for Spring Boot</description>
 
 	<properties>
