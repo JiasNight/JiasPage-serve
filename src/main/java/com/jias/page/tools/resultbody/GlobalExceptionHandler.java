@@ -14,7 +14,8 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = CustomException.class)
     @ResponseBody
     public Result bizExceptionHandler(CustomException e) {
-        return Result.error().message(e.getMessage()).code(e.errorCode);
+//        return Result.error().message(e.getMessage()).code(e.errorCode);
+        return null;
     }
 
     /**
@@ -24,6 +25,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public Result exceptionHandler( Exception e) {
-        return Result.error();
+//        return Result.error();
+        return null;
     }
 }

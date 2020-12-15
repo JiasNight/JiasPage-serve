@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jias.music.mapper.UserMapper">
+
+    <!-- 用户注册-->
+    <insert id="addUser" parameterType="com.jias.page.entity.User">
+        insert into user(user_name,user_password) values(#{userName},#{userPassword})
+    </insert>
+
+    <!-- 用户查询-->
+    <select id="selectAllUser" resultType="java.util.List">
+        select * from user
+    </select>
+
+</mapper>

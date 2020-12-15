@@ -8,9 +8,9 @@ public class CustomException extends RuntimeException{
         super(errorMsg);
         this.errorCode = errorCode;
     }
-    public CustomException(CodeEnum codeEnum) {
-        super(codeEnum.getMessage());
-        this.errorCode = codeEnum.getCode();
+    public CustomException(ResultEnum resultEnum) {
+        super(resultEnum.getMessage());
+        this.errorCode = resultEnum.getCode();
     }
 
     @Override

@@ -1,8 +1,6 @@
 package com.jias.page.tools.resultbody;
 
 
-import java.util.Map;
-
 public class Result {
 
     private Boolean success;
@@ -15,6 +13,46 @@ public class Result {
 
     // 构造器私有
     private Result(){}
+
+    public static Result success() {
+        Result result = new Result();
+        result.setSuccess(ResultEnum.SUCCESS.getSuccess());
+        result.setCode(ResultEnum.SUCCESS.getCode());
+        result.setMessage(ResultEnum.SUCCESS.getMessage());
+        return result;
+    }
+
+    public static Result success(Object data) {
+        Result result = new Result();
+        result.setSuccess(ResultEnum.SUCCESS.getSuccess());
+        result.setData(data);
+        return result;
+    }
+
+    public static Result failure() {
+        Result result = new Result();
+        result.setSuccess(ResultEnum.FAILURE.getSuccess());
+        result.setCode(ResultEnum.FAILURE.getCode());
+        result.setMessage(ResultEnum.FAILURE.getMessage());
+        return result;
+    }
+
+    public static Result failure(ResultEnum resultEnum, Object data) {
+        Result result = new Result();
+        result.setSuccess(resultEnum.getSuccess());
+        result.setCode(resultEnum.getCode());
+        result.setMessage(resultEnum.getMessage());
+        result.setData(data);
+        return result;
+    }
+
+//    public static Result setResult(CodeEnum codeEnum) {
+//        Result result = new Result();
+//        result.setSuccess(codeEnum.getSuccess());
+//        result.setCode(codeEnum.getCode());
+//        result.setMessage(codeEnum.getMessage());
+//        return result;
+//    }
 
     public Boolean getSuccess() {
         return success;
@@ -46,30 +84,5 @@ public class Result {
 
     public void setData(Object data) {
         this.data = data;
-    }
-
-    public static Result victory(Object data) {
-        return result(CodeEnum.SUCCESS.getSuccess(), CodeEnum.SUCCESS.getCode(), CodeEnum.SUCCESS.getMessage(), data);
-    }
-
-    public static Result victory(String message, Object data) {
-        return result(CodeEnum.SUCCESS.getSuccess(), CodeEnum.SUCCESS.getCode(), message, data);
-    }
-
-    public static Result defeat(Object data) {
-        return result(CodeEnum.FAIL.getSuccess(), CodeEnum.FAIL.getCode(), CodeEnum.FAIL.getMessage(), data);
-    }
-
-    public static Result defeat(Integer code,String message, Object data) {
-        return result(CodeEnum.FAIL.getSuccess(), code, message, data);
-    }
-
-    public static Result result(Boolean success, Integer code,String message, Object data){
-        Result result = new Result();
-        result.setSuccess(success);
-        result.setCode(code);
-        result.setMessage(message);
-        result.setData(data);
-        return result;
     }
 }

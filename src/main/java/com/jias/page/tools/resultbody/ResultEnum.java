@@ -1,9 +1,9 @@
 package com.jias.page.tools.resultbody;
 
-public enum CodeEnum {
+public enum ResultEnum {
     // 数据操作错误定义
     SUCCESS(true, 200, "成功"),
-    FAIL(false, 201, "失败"),
+    FAILURE(false, 201, "失败"),
     NO_PERMISSION(false, 403, "你没得权限"),
     NO_AUTH(false, 401,"你能不能先登录一下"),
     NOT_FOUND(false, 404, "未找到该资源!"),
@@ -17,7 +17,7 @@ public enum CodeEnum {
     // 响应信息
     private String message;
 
-    CodeEnum(Boolean success, Integer code, String message) {
+    ResultEnum(Boolean success, Integer code, String message) {
         this.success = success;
         this.code = code;
         this.message = message;
@@ -27,11 +27,23 @@ public enum CodeEnum {
         return success;
     }
 
+    public void setSuccess(Boolean success) {
+        this.success = success;
+    }
+
     public Integer getCode() {
         return code;
     }
 
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
     public String getMessage() {
         return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
