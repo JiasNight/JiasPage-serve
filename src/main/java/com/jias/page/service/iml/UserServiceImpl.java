@@ -23,12 +23,8 @@ public class UserServiceImpl implements UserService {
     UserMapper userMapper;
 
     @Override
-    public boolean selectAllUser() {
+    public List<User> selectAllUser() {
         List<User> users = userMapper.selectAllUser();
-        if (users == null) {
-            return true;
-        } else {
-            return false;
-        }
+        return users;
     }
 }

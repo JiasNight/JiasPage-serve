@@ -6,6 +6,8 @@ import com.jias.page.tools.resultbody.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -13,8 +15,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-//    @PostMapping("addUser")
-    @GetMapping("addUser")
+    @PostMapping("addUser")
     public Result addUser(@RequestBody User user){
         if(1 == 1){
             return Result.success();
@@ -24,7 +25,10 @@ public class UserController {
     }
 
     @GetMapping("allUser")
-    public Result allUser() {
-        return Result.success(userService.selectAllUser());
+    public List allUser() {
+//        return Result.success(userService.selectAllUser());
+        List<User> users = userService.selectAllUser();
+        return users;
+
     }
 }
