@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -16,10 +17,14 @@ public class UserController {
     UserService userService;
 
     @PostMapping("addUser")
-    public Result addUser(@RequestBody User user){
-        if(1 == 1){
+    public Result addUser(@RequestParam String userName, @RequestParam String userPasswd){
+        User user = new User();
+        user.setUserName(userName);
+        user.setUserPassword(userPasswd);
+        Boolean aBoolean = userService.addUser(user);
+        if(aBoolean) {
             return Result.success();
-        }else{
+        } else {
             return Result.failure();
         }
     }
@@ -28,7 +33,7 @@ public class UserController {
     public List allUser() {
 //        return Result.success(userService.selectAllUser());
         List<User> users = userService.selectAllUser();
+        System.out.println("users:" + users);
         return users;
-
     }
 }

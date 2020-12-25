@@ -27,4 +27,10 @@ public class UserServiceImpl implements UserService {
         List<User> users = userMapper.selectAllUser();
         return users;
     }
+
+    @Override
+    public Boolean addUser(User user) {
+        Boolean aBoolean = userMapper.addUser(user);
+        return aBoolean;
+    }
 }

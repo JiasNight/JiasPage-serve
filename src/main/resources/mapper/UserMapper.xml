@@ -8,7 +8,7 @@
     </insert>
 
     <!-- 用户查询-->
-    <select id="selectAllUser" resultType="com.jias.page.entity.User">
+    <select id="selectAllUser" resultType="User">
         select * from users
     </select>
 
