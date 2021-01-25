@@ -10,5 +10,5 @@ public interface UserService {
     List<User> selectAllUser();
 
     // 注册用户
-    Boolean addUser(User user);
+    int addUser(User user);
 }

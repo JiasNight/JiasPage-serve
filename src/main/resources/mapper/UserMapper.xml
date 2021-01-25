@@ -3,8 +3,8 @@
 <mapper namespace="com.jias.page.mapper.UserMapper">
 
     <!-- 用户注册-->
-    <insert id="addUser" parameterType="User">
-        insert into user(user_name,user_password) values(#{userName},#{userPassword})
+    <insert id="addUser" parameterType="com.jias.page.entity.User">
+        insert into users(user_id,user_name,user_password) values(#{userId},#{userName},#{userPassword})
     </insert>
 
     <!-- 用户查询-->

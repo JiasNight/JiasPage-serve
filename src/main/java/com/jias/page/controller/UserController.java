@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @CrossOrigin
 @RestController
@@ -18,11 +19,13 @@ public class UserController {
 
     @PostMapping("addUser")
     public Result addUser(@RequestParam String userName, @RequestParam String userPasswd){
+        long uuid = System.currentTimeMillis();
         User user = new User();
+        user.setUserId(uuid);
         user.setUserName(userName);
         user.setUserPassword(userPasswd);
-        Boolean aBoolean = userService.addUser(user);
-        if(aBoolean) {
+        int anInt = userService.addUser(user);
+        if(anInt != 0) {
             return Result.success();
         } else {
             return Result.failure();

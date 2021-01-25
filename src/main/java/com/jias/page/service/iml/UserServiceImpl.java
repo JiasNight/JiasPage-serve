@@ -5,6 +5,7 @@ import com.jias.page.mapper.UserMapper;
 import com.jias.page.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ import java.util.List;
  * @author jias
  * @since 2020-11-18
  */
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -29,8 +31,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Boolean addUser(User user) {
-        Boolean aBoolean = userMapper.addUser(user);
-        return aBoolean;
+    public int addUser(User user) {
+        int anInt = userMapper.addUser(user);
+        return anInt;
     }
 }

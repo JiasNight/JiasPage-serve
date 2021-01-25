@@ -10,5 +10,5 @@ public interface UserMapper {
 
     List<User> selectAllUser();
 
-    Boolean addUser(User user);
+    int addUser(User user);
 }
