@@ -30,10 +30,12 @@ public class UserController {
     }
 
     @GetMapping("allUser")
-    public List allUser() {
-//        return Result.success(userService.selectAllUser());
+    public Result allUser() {
         List<User> users = userService.selectAllUser();
-        System.out.println("users:" + users);
-        return users;
+        if(users.isEmpty()) {
+            return Result.failure();
+        } else {
+            return Result.success(users);
+        }
     }
 }

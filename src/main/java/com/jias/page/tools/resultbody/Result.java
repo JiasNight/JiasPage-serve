@@ -1,58 +1,83 @@
 package com.jias.page.tools.resultbody;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 public class Result {
 
+    // 是否成功
     private Boolean success;
 
+    // 响应码
     private Integer code;
 
+    // 响应信息
     private String message;
 
+    // 响应时间
+    private String timestamp = this.timeFormat();
+
+    // 响应数据
     private Object data;
 
     // 构造器私有
     private Result(){}
 
+    // 返回成功
     public static Result success() {
         Result result = new Result();
-        result.setSuccess(ResultEnum.SUCCESS.getSuccess());
-        result.setCode(ResultEnum.SUCCESS.getCode());
-        result.setMessage(ResultEnum.SUCCESS.getMessage());
+        result.setResultEnum(ResultEnum.SUCCESS);
         return result;
     }
 
+    // 返回成功
     public static Result success(Object data) {
         Result result = new Result();
-        result.setSuccess(ResultEnum.SUCCESS.getSuccess());
-        result.setData(data);
+        result.setSuccess(true);
+        result.setResultEnum(ResultEnum.SUCCESS);
+        result.setResultData(data);
         return result;
     }
 
+    // 返回失败
     public static Result failure() {
         Result result = new Result();
-        result.setSuccess(ResultEnum.FAILURE.getSuccess());
-        result.setCode(ResultEnum.FAILURE.getCode());
-        result.setMessage(ResultEnum.FAILURE.getMessage());
+        result.setSuccess(false);
+        result.setResultEnum(ResultEnum.FAILURE);
         return result;
     }
 
+    // 返回失败
+    public static Result failure(ResultEnum resultEnum) {
+        Result result = new Result();
+        result.setResultEnum(resultEnum);
+        return result;
+    }
+
+    // 返回失败
     public static Result failure(ResultEnum resultEnum, Object data) {
         Result result = new Result();
-        result.setSuccess(resultEnum.getSuccess());
-        result.setCode(resultEnum.getCode());
-        result.setMessage(resultEnum.getMessage());
-        result.setData(data);
+        result.setResultEnum(resultEnum);
+        result.setResultData(data);
         return result;
     }
 
-//    public static Result setResult(CodeEnum codeEnum) {
-//        Result result = new Result();
-//        result.setSuccess(codeEnum.getSuccess());
-//        result.setCode(codeEnum.getCode());
-//        result.setMessage(codeEnum.getMessage());
-//        return result;
-//    }
+    public void setResultEnum(ResultEnum resultEnum) {
+        this.setCode(resultEnum.getCode());
+        this.setMessage(resultEnum.getMessage());
+    }
+
+    public void setResultData(Object data) {
+        this.setData(data);
+    }
+
+    // 时间格式化
+    public String timeFormat() {
+        SimpleDateFormat sdf = new SimpleDateFormat("", Locale.SIMPLIFIED_CHINESE);
+        sdf.applyPattern("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(System.currentTimeMillis());
+    }
 
     public Boolean getSuccess() {
         return success;
@@ -76,6 +101,14 @@ public class Result {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
     }
 
     public Object getData() {
