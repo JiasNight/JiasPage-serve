@@ -3,9 +3,13 @@
 <mapper namespace="com.jias.page.mapper.UserMapper">
 
     <!-- 用户注册-->
-    <insert id="addUser" parameterType="com.jias.page.entity.User">
-        insert into users(user_id,user_name,user_password) values(#{userId},#{userName},#{userPassword})
+    <insert id="addUser" parameterType="User">
+        insert into users(user_id,user_name,user_password,create_time,update_time) values(#{userId},#{userName},#{userPassword},#{createTime},#{updateTime})
     </insert>
+
+    <select id="userLogin" parameterType="User" resultType="String">
+        select user_password from users where user_name = #{userName}
+    </select>
 
     <!-- 用户查询-->
     <select id="selectAllUser" resultType="User">

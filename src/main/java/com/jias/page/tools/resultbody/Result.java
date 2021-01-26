@@ -25,6 +25,14 @@ public class Result {
     // 构造器私有
     private Result(){}
 
+    public Result(Boolean success, Integer code, String message, String timestamp, Object data) {
+        this.success = success;
+        this.code = code;
+        this.message = message;
+        this.timestamp = timestamp;
+        this.data = data;
+    }
+
     // 返回成功
     public static Result success() {
         Result result = new Result();

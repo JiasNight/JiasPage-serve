@@ -11,4 +11,7 @@ public interface UserService {
 
     // 注册用户
     int addUser(User user);
+
+    // 用户登录
+    String userLogin(User user);
 }

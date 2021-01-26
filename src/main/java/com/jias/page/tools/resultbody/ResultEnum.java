@@ -4,6 +4,7 @@ public enum ResultEnum {
     // 数据操作错误定义
     SUCCESS(200, "成功"),
     FAILURE(201, "失败"),
+    VERIFY_FAILURE(202, "账号或密码错误"),
     NO_AUTH(401,"你能不能先登录一下"),
     NO_PERMISSION(403, "你没得权限"),
     NOT_FOUND(404, "未找到该资源!"),

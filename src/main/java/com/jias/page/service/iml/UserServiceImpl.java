@@ -32,7 +32,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int addUser(User user) {
-        int anInt = userMapper.addUser(user);
-        return anInt;
+        return userMapper.addUser(user);
+    }
+
+    @Override
+    public String userLogin(User user) {
+        return userMapper.userLogin(user);
     }
 }

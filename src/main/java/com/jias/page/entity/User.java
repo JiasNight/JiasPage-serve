@@ -28,14 +28,14 @@ public class User {
 
     private Integer isDeleted;
 
-    private Date createTime;
+    private String createTime;
 
-    private Date updateTime;
+    private String updateTime;
 
     public User() {
     }
 
-    public User(Long userId, String userName, String userPassword, String userNick, String userEmail, String userPhone, Integer userGender, String userBirthday, String userCity, String userAvatar, String userMarks, Integer isDeleted, Date createTime, Date updateTime) {
+    public User(Long userId, String userName, String userPassword, String userNick, String userEmail, String userPhone, Integer userGender, String userBirthday, String userCity, String userAvatar, String userMarks, Integer isDeleted, String createTime, String updateTime) {
         this.userId = userId;
         this.userName = userName;
         this.userPassword = userPassword;
@@ -148,19 +148,19 @@ public class User {
         this.isDeleted = isDeleted;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
+    public String getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
     }
 }
