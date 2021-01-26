@@ -1,4 +1,4 @@
-package com.jias.music.tools.bcrypt;
+package com.jias.page.tools.bcrypt;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class BCryptPassword {
 
     @Bean
-    public BCryptPasswordEncoder password(){
+    public BCryptPasswordEncoder encoder(){
         return new BCryptPasswordEncoder();
     }
 }

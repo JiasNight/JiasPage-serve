@@ -2,6 +2,7 @@ package com.jias.page.tools.resultbody;
 
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 public class Result {
@@ -74,9 +75,9 @@ public class Result {
 
     // 时间格式化
     public String timeFormat() {
-        SimpleDateFormat sdf = new SimpleDateFormat("", Locale.SIMPLIFIED_CHINESE);
-        sdf.applyPattern("yyyy-MM-dd HH:mm:ss");
-        return sdf.format(System.currentTimeMillis());
+        Date date = new Date(System.currentTimeMillis());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(date);
     }
 
     public Boolean getSuccess() {
