@@ -41,6 +41,7 @@ public class UserController {
 
     @PostMapping("addUser")
     public Result addUser(@RequestParam String userName, @RequestParam String userPasswd){
+        // 使用系统毫秒数作为主键id
         long uuid = System.currentTimeMillis();
         User user = new User();
         user.setUserId(uuid);
@@ -48,6 +49,7 @@ public class UserController {
         String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(System.currentTimeMillis());
         user.setCreateTime(time);
         user.setUpdateTime(time);
+        // 用户密码加密存储
         BCryptPasswordEncoder passwordEncoder = bCryptPassword.passwordEncoder();
         user.setUserPassword(passwordEncoder.encode(userPasswd));
         int anInt = userService.addUser(user);
