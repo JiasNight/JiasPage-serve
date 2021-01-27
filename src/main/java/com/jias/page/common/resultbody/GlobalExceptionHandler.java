@@ -1,4 +1,4 @@
-package com.jias.page.tools.resultbody;
+package com.jias.page.common.resultbody;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

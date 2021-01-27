@@ -1,4 +1,4 @@
-package com.jias.page.tools.bcrypt;
+package com.jias.page.common.bcrypt;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

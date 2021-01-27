@@ -1,9 +1,8 @@
-package com.jias.page.tools.resultbody;
+package com.jias.page.common.resultbody;
 
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 public class Result {
 

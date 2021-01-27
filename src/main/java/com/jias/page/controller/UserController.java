@@ -2,17 +2,15 @@ package com.jias.page.controller;
 
 import com.jias.page.entity.User;
 import com.jias.page.service.UserService;
-import com.jias.page.tools.bcrypt.BCryptPassword;
-import com.jias.page.tools.resultbody.Result;
-import com.jias.page.tools.resultbody.ResultEnum;
+import com.jias.page.common.bcrypt.BCryptPassword;
+import com.jias.page.common.resultbody.Result;
+import com.jias.page.common.resultbody.ResultEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 @CrossOrigin
 @RestController

@@ -1,4 +1,4 @@
-package com.jias.page.tools.resultbody;
+package com.jias.page.common.resultbody;
 
 public enum ResultEnum {
     // 数据操作错误定义
