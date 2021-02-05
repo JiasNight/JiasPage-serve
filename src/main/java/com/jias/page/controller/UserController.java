@@ -67,4 +67,9 @@ public class UserController {
             return Result.success(users);
         }
     }
+
+    @GetMapping("hi")
+    public Result test(){
+        return Result.success("niha");
+    }
 }

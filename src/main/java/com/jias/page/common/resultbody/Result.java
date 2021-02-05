@@ -24,18 +24,24 @@ public class Result {
     // 构造器私有
     private Result(){}
 
-    public Result(Boolean success, Integer code, String message, String timestamp, Object data) {
+    public Result(Boolean success, ResultEnum resultEnum, String timestamp) {
         this.success = success;
-        this.code = code;
-        this.message = message;
+        this.code = resultEnum.getCode();
+        this.message = resultEnum.getMessage();
         this.timestamp = timestamp;
-        this.data = data;
     }
 
     // 返回成功
     public static Result success() {
+        return new Result(true, ResultEnum.SUCCESS, timeFormat());
+    }
+
+    // 返回成功
+    public static Result success(ResultEnum resultEnum) {
         Result result = new Result();
-        result.setResultEnum(ResultEnum.SUCCESS);
+        result.setSuccess(false);
+        result.setResultEnum(resultEnum);
+        result.setTimestamp(timeFormat());
         return result;
     }
 
@@ -44,30 +50,32 @@ public class Result {
         Result result = new Result();
         result.setSuccess(true);
         result.setResultEnum(ResultEnum.SUCCESS);
-        result.setResultData(data);
+        result.setTimestamp(timeFormat());
+        result.setData(data);
+        return result;
+    }
+
+    // 返回成功
+    public static Result success(ResultEnum resultEnum, Object data) {
+        Result result = new Result();
+        result.setSuccess(true);
+        result.setResultEnum(resultEnum);
+        result.setTimestamp(timeFormat());
+        result.setData(data);
         return result;
     }
 
     // 返回失败
     public static Result failure() {
-        Result result = new Result();
-        result.setSuccess(false);
-        result.setResultEnum(ResultEnum.FAILURE);
-        return result;
+        return new Result(false, ResultEnum.FAILURE, timeFormat());
     }
 
     // 返回失败
     public static Result failure(ResultEnum resultEnum) {
         Result result = new Result();
+        result.setSuccess(false);
         result.setResultEnum(resultEnum);
-        return result;
-    }
-
-    // 返回失败
-    public static Result failure(ResultEnum resultEnum, Object data) {
-        Result result = new Result();
-        result.setResultEnum(resultEnum);
-        result.setResultData(data);
+        result.setTimestamp(timeFormat());
         return result;
     }
 
@@ -76,12 +84,8 @@ public class Result {
         this.setMessage(resultEnum.getMessage());
     }
 
-    public void setResultData(Object data) {
-        this.setData(data);
-    }
-
     // 时间格式化
-    public String timeFormat() {
+    public static String timeFormat() {
         Date date = new Date(System.currentTimeMillis());
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(date);
