@@ -6,10 +6,10 @@ server:
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://49.233.217.34:3306/pagedb?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true
+    username: root
+    password: root
     druid:
-      url: jdbc:mysql://49.233.217.34:3306/pagedb?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true
-      username: root
-      password: root
       initialSize: 5
       minIdle: 5
       maxActive: 20
@@ -42,6 +42,7 @@ mybatis:
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
-# 设置日志级别
-#logging:
-#  level: info
+# 设置日志路径
+logging:
+  file:
+    path: logs/
