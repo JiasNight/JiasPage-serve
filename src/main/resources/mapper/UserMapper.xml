@@ -4,11 +4,11 @@
 
     <!-- 用户注册-->
     <insert id="addUser" parameterType="User">
-        insert into users(user_id,user_name,user_password,create_time,update_time) values(#{userId},#{userName},#{userPassword},#{createTime},#{updateTime})
+        insert into users(user_id,user_name,user_password,create_time,update_time) values (#{userId},#{userName},#{userPassword},#{createTime},#{updateTime})
     </insert>
 
-    <select id="userLogin" parameterType="User" resultType="String">
-        select user_password from users where user_name = #{userName}
+    <select id="userSignIn" parameterType="User" resultType="map">
+        select user_id, user_password from users where user_name = #{userName}
     </select>
 
     <!-- 用户查询-->
@@ -16,4 +16,28 @@
         select * from users
     </select>
 
+    <!--  记录用户登录日志-->
+    <insert id="addUserLoginLog" parameterType="UserLoginLog">
+        insert into  user_login_log(
+            log_id,
+            user_id,
+            user_name,
+            login_ip,
+            login_time,
+            login_status,
+            logout_time,
+            create_time,
+            update_time
+        ) values (
+            #{logId},
+            #{userId},
+            #{userName},
+            #{loginIp},
+            #{loginTime},
+            #{loginStatus},
+            #{logoutTime},
+            #{createTime},
+            #{updateTime}
+        )
+    </insert>
 </mapper>

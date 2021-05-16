@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class User {
 
-    private Long userId;
+    private String userId;
 
     private String userName;
 
@@ -35,7 +35,7 @@ public class User {
     public User() {
     }
 
-    public User(Long userId, String userName, String userPassword, String userNick, String userEmail, String userPhone, Integer userGender, String userBirthday, String userCity, String userAvatar, String userMarks, Integer isDeleted, String createTime, String updateTime) {
+    public User(String userId, String userName, String userPassword, String userNick, String userEmail, String userPhone, Integer userGender, String userBirthday, String userCity, String userAvatar, String userMarks, Integer isDeleted, String createTime, String updateTime) {
         this.userId = userId;
         this.userName = userName;
         this.userPassword = userPassword;
@@ -52,11 +52,11 @@ public class User {
         this.updateTime = updateTime;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
